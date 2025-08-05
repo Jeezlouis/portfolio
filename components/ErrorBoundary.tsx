@@ -2,11 +2,11 @@
 
 import * as Sentry from "@sentry/nextjs";
 import { ErrorBoundary as SentryErrorBoundary } from "@sentry/nextjs";
-import { ReactNode } from "react";
+import { ReactNode, ReactElement, JSXElementConstructor } from "react";
 
 interface Props {
   children: ReactNode;
-  fallback?: ReactNode;
+  fallback?: ReactElement<any, string | JSXElementConstructor<any>> | (() => ReactElement);
 }
 
 export default function ErrorBoundary({ children, fallback }: Props) {
