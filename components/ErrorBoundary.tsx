@@ -29,7 +29,7 @@ function ErrorFallback() {
         Oops! Something went wrong
       </h2>
       <p className="text-gray-600 mb-6">
-        We've been notified about this error and will fix it soon.
+        We&apos;ve been notified about this error and will fix it soon.
       </p>
       <button
         onClick={() => window.location.reload()}
