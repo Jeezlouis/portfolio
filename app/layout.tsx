@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import * as Sentry from '@sentry/nextjs';
 import { Inter } from "next/font/google";
 
 import "./globals.css";
@@ -9,7 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Isreal's Portfolio",
   description: "Modern & Minimal JS Mastery Portfolio",
+  other: {
+            ...Sentry.getTraceData()
+          }
 };
+
 
 export default function RootLayout({
   children,
