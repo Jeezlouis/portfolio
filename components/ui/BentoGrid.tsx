@@ -56,14 +56,13 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
+  const lottieProps = {
+    animationData,
     loop: copied,
     autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
+    style: { height: 200, width: 400 },
   };
+
 
   const handleCopy = () => {
     const text = "bobzy005@gmail.com";
@@ -179,7 +178,7 @@ export const BentoGridItem = ({
                   }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+                <Lottie {...lottieProps} />
               </div>
 
               <MagicButton
