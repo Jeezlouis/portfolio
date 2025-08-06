@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import * as Sentry from '@sentry/nextjs';
 import { Inter } from "next/font/google";
+import dynamic from "next/dynamic";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
-import ErrorBoundary from "@/components/ErrorBoundary";
+
+// Dynamically import ErrorBoundary to prevent SSR issues
+const ErrorBoundary = dynamic(() => import("@/components/ErrorBoundary"), {
+  ssr: false
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +31,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/bobz.png" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <ErrorBoundary>
           <ThemeProvider
             attribute="class"
@@ -35,7 +40,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
-        </ThemeProvider>
+          </ThemeProvider>
         </ErrorBoundary>
       </body>
     </html>

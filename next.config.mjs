@@ -6,6 +6,17 @@ const nextConfig = {
         // your project has ESLint errors.
         ignoreDuringBuilds: true,
     },
+    experimental: {
+        esmExternals: false
+    },
+    transpilePackages: ['three', '@react-three/fiber', '@react-three/drei', 'framer-motion'],
+    webpack: (config) => {
+        config.externals.push({
+            'utf-8-validate': 'commonjs utf-8-validate',
+            bufferutil: 'commonjs bufferutil',
+        });
+        return config;
+    },
 };
 
 export default withSentryConfig(withSentryConfig(nextConfig, {
