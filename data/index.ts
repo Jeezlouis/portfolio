@@ -96,6 +96,14 @@ export const projects = [
   },
   {
     id: 4,
+    title: "Learning Management System Saas App",
+    des: "Converso is a cutting-edge real-time AI teaching platform that enables students to have natural voice conversations with AI companions for personalized learning experiences.",
+    img: "/converso.svg", 
+    iconLists: ["/nextjs.svg", "/tail.svg", "/vapi.svg", "/clerk.svg", "/supabase.svg"], // 
+    link: "https://sass-app-alpha.vercel.app/", 
+  },
+  {
+    id: 5,
     title: "AI Code Generator",
     des: "A web-based AI code assistant that takes user input and generates code snippets in real-time using OpenAI's Codex API for multiple languages.",
     img: "/ai-code.svg", 
